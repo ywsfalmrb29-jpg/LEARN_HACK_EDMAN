@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+:root {
+    --gold: #ffd700;
+    --gold-glow: #ffae00;
+    --green-cyber: #00ff66;
+    --bg-dark: #050807;
+    --card-bg: rgba(15, 23, 18, 0.85);
+    --text-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* خلفية الماتريكس */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.25;
+}
+
+/* شريط الملاحة */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(5, 8, 7, 0.95);
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 8px var(--gold);
+}
+
+/* القسم الرئيسي Hero */
+.hero {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--gold-glow);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--green-cyber);
+    text-shadow: 0 0 10px var(--green-cyber);
+    margin-bottom: 2rem;
+}
+
+/* الأزرار السيبرانية */
+.cyber-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    background: transparent;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+.cyber-btn:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 25px var(--gold-glow);
+    transform: translateY(-3px);
+}
+
+.primary-btn {
+    border-color: var(--gold);
+}
+
+.secondary-btn {
+    border-color: var(--green-cyber);
+    color: var(--green-cyber);
+}
+
+.secondary-btn:hover {
+    background: var(--green-cyber);
+    color: #000;
+    box-shadow: 0 0 25px var(--green-cyber);
+}
+
+/* الأقسام والبطاقات */
+.cyber-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 10px var(--gold-glow);
+    border-bottom: 1px dashed var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.cyber-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.cyber-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.cyber-card h3 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.cyber-card p {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* كورة التأثيرات النيون عند النقر */
+.click-particle {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle, var(--gold) 0%, rgba(255, 215, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulseEffect 0.6s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes pulseEffect {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+        box-shadow: 0 0 10px var(--gold), 0 0 20px var(--green-cyber);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* الفوتر */
+.cyber-footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: rgba(2, 4, 3, 0.98);
+    border-top: 2px solid var(--gold);
+    margin-top: 3rem;
+}
+
+.social-buttons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gold-text {
+    color: var(--gold);
+    font-weight: bold;
+    text-shadow: 0 0 8px var(--gold-glow);
+}
+
+/* تجاوب الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
